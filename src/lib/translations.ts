@@ -14,13 +14,13 @@ export const translations = {
     hero: {
       badge: "Réponse d'urgence 24/7 à Alger",
       title: "Des soins attentionnés quand cela compte le plus",
-      desc: "Ambulance Faycal fournit un transport médical d'urgence professionnel et des services funéraires avec un commitment envers la dignité, la rapidité et la fiabilité.",
+      desc: "Ambulance Faycal fournit un transport médical d'urgence professionnel et des services funéraires avec un engagement envers la dignité, la rapidité et la fiabilité.",
       callNow: "Appeler : +213 123 456",
       ourServices: "Nos Services"
     },
     services: {
       title: "Nos Services",
-      desc: "Reliable, professional, and empathetic transport solutions for medical and funeral needs in Algiers.",
+      desc: "Solutions de transport fiables, professionnelles et empathiques pour les besoins médicaux et funéraires à Alger.",
       emergency: {
         title: "Transport d'Urgence",
         desc: "Transport médical à réponse rapide avec des ambulances modernes entièrement équipées."
