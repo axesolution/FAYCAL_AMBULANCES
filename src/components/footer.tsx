@@ -18,9 +18,9 @@ export function Footer() {
               <Image
                 src="/logo.png"
                 alt="Ambulance Fayçal"
-                width={48}
-                height={48}
-                className="object-contain"
+                width={64}
+                height={64}
+                className="object-cover scale-150 invert"
               />
             </div>
             <span className="text-2xl font-black uppercase tracking-tighter">{t.brand}</span>

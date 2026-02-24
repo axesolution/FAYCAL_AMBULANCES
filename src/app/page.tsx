@@ -64,14 +64,14 @@ export default function Home() {
                 <span className="flex h-2 w-2 rounded-full bg-destructive animate-pulse"></span>
                 {t.hero.badge}
               </div>
-              <h1 className="text-[clamp(1.75rem,3.8vw,3rem)] font-bold text-white mb-6 leading-snug md:leading-tight uppercase tracking-normal sm:tracking-tight">
+              <h1 className="text-[clamp(1.5rem,4.8vw,2.5rem)] font-bold text-white mb-6 leading-snug md:leading-tight md:uppercase tracking-normal sm:tracking-tight">
                 {t.hero.title}
               </h1>
               <p className="text-[clamp(0.9rem,1.2vw,1.2rem)] text-white/90 mb-4 leading-relaxed max-w-2xl">
                 {t.hero.desc}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white text-[clamp(0.95rem,1.4vw,1.125rem)] px-[clamp(1rem,2.2vw,2rem)] py-[clamp(0.9rem,2vw,1.4rem)] rounded-full shadow-xl">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white w-full sm:w-auto text-[clamp(0.95rem,1.4vw,1.125rem)] px-[clamp(1rem,2.2vw,2rem)] py-[clamp(0.9rem,2vw,1.4rem)] rounded-full shadow-xl">
                   <a href="tel:+213123456789">{t.hero.callNow}</a>
                 </Button>
               </div>
@@ -83,10 +83,10 @@ export default function Home() {
         <section id="services" className="py-24 bg-slate-50 scroll-mt-28">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-[clamp(1.75rem,3.2vw,2.25rem)] font-extrabold text-slate-900 mb-4 uppercase tracking-tight">{t.services.title}</h2>
+              <h2 className="text-[clamp(1.75rem,3.2vw,2.25rem)] font-extrabold text-slate-900 mb-4 md:uppercase tracking-tight">{t.services.title}</h2>
               <div className="w-24 h-1.5 bg-primary mx-auto mb-6 rounded-full"></div>
               <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-                Intervention 24/7 à Alger: urgences médicales, transferts inter‑hospitaliers et transport funéraire, avec réactivité et respect des patients et des familles.
+                {t.services.desc}
               </p>
             </div>
 

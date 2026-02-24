@@ -20,7 +20,7 @@ export const translations = {
     },
     services: {
       title: "Nos Services",
-      desc: "Solutions de transport sanitaire et funéraire fiables à Alger : urgence, transferts inter-hospitaliers et rapatriement local.",
+      desc: "Intervention 24/7 à Alger: urgences médicales, transferts inter‑hospitaliers et transport funéraire, avec réactivité et respect des patients et des familles.",
       emergency: {
         title: "Transport d'Urgence",
         desc: "Transport médical à réponse rapide avec des ambulances modernes entièrement équipées."
@@ -134,7 +134,7 @@ export const translations = {
     },
     services: {
       title: "خدماتنا",
-      desc: "حلول نقل موثوقة واحترافية ورحيمة للاحتياجات الطبية والجنائزية في الجزائر العاصمة.",
+      desc: "تدخل 24/7 في الجزائر: طوارئ طبية، تحويلات بين المستشفيات، ونقل جنائزي، مع سرعة استجابة واحترام للمرضى وعائلاتهم.",
       emergency: {
         title: "النقل الطارئ",
         desc: "نقل طبي سريع الاستجابة بسيارات إسعاف حديثة ومجهة بالكامل."

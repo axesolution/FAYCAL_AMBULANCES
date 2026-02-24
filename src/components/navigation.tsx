@@ -73,7 +73,7 @@ export function Navigation() {
     <nav className={cn(
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
-    )}>
+    )} style={{ paddingTop: 'env(safe-area-inset-top)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
@@ -106,7 +106,8 @@ export function Navigation() {
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-[clamp(0.8rem,1vw,0.95rem)] font-bold uppercase md:tracking-tight lg:tracking-wide transition-colors px-2 py-4 whitespace-nowrap",
+                  "text-[clamp(0.8rem,1vw,0.95rem)] font-bold md:tracking-tight lg:tracking-wide transition-colors px-2 py-4 whitespace-nowrap",
+                  lang !== 'ar' ? "uppercase" : "",
                   scrolled ? "text-slate-600 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >
@@ -116,7 +117,7 @@ export function Navigation() {
             
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className={cn(
+                <Button variant="ghost" size="icon" aria-label={lang === 'ar' ? "اللغة" : "Langue"} className={cn(
                   "rounded-full",
                   scrolled ? "text-slate-600 hover:text-primary" : "text-white hover:bg-white/10"
                 )}>
@@ -137,7 +138,7 @@ export function Navigation() {
           <div className="md:hidden flex items-center gap-2">
              <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className={scrolled ? "text-slate-900" : "text-white"}>
+                <Button variant="ghost" size="icon" aria-label={lang === 'ar' ? "اللغة" : "Langue"} className={scrolled ? "text-slate-900" : "text-white"}>
                   <Globe className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -148,7 +149,8 @@ export function Navigation() {
             </DropdownMenu>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={cn("p-2 rounded-xl transition-colors", scrolled ? "text-slate-900" : "text-white")}
+              aria-label={isOpen ? (lang === 'ar' ? "إغلاق القائمة" : "Fermer le menu") : (lang === 'ar' ? "فتح القائمة" : "Ouvrir le menu")}
+              className={cn("h-11 w-11 flex items-center justify-center rounded-xl transition-colors", scrolled ? "text-slate-900" : "text-white")}
             >
               {isOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
             </button>
@@ -163,7 +165,7 @@ export function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                    className="block px-4 py-3 text-[clamp(1rem,2.2vw,1.125rem)] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-colors"
+                    className="flex items-center h-12 px-4 text-[clamp(1rem,2.2vw,1.125rem)] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
