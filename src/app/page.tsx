@@ -1,4 +1,3 @@
-
 import Image from "next/image"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
@@ -11,6 +10,7 @@ import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 export default function Home() {
   const heroImg = PlaceHolderImages.find(img => img.id === "hero-ambulance")
+  const fallbackHero = "https://picsum.photos/seed/ambulance-default/1920/1080"
   
   const services = [
     {
@@ -41,8 +41,8 @@ export default function Home() {
         {/* Hero Section */}
         <section className="relative h-[90vh] flex items-center overflow-hidden">
           <Image
-            src={heroImg?.imageUrl || ""}
-            alt={heroImg?.description || "Hero"}
+            src={heroImg?.imageUrl || fallbackHero}
+            alt={heroImg?.description || "Faycal Ambulance Services"}
             fill
             className="object-cover brightness-[0.4]"
             priority
@@ -109,7 +109,7 @@ export default function Home() {
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src={PlaceHolderImages.find(i => i.id === "medical-team")?.imageUrl || ""}
+                src={PlaceHolderImages.find(i => i.id === "medical-team")?.imageUrl || "https://picsum.photos/seed/medteam/800/600"}
                 alt="Medical Team"
                 fill
                 className="object-cover"

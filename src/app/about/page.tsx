@@ -1,4 +1,3 @@
-
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -7,6 +6,8 @@ import { Shield, Users, Heart, Award } from "lucide-react"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 export default function AboutPage() {
+  const ambulanceImg = PlaceHolderImages.find(i => i.id === "hero-ambulance")?.imageUrl || "https://picsum.photos/seed/ambulance-about/800/600"
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -37,7 +38,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[400px] rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src={PlaceHolderImages.find(i => i.id === "hero-ambulance")?.imageUrl || ""}
+                src={ambulanceImg}
                 alt="Our Fleet"
                 fill
                 className="object-cover"

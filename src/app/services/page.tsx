@@ -1,4 +1,3 @@
-
 import Image from "next/image"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -19,6 +18,9 @@ export default function ServicesPage() {
     { title: "Administrative Support", icon: Shield, desc: "Assistance with all necessary permits and legal documentation for transport." },
     { title: "Specialized Fleet", icon: UserCheck, desc: "Climate-controlled vehicles designed specifically for respectful funeral transport." },
   ]
+
+  const ambulanceImg = PlaceHolderImages.find(img => img.id === "hero-ambulance")?.imageUrl || "https://picsum.photos/seed/ambulance-services/800/600"
+  const funeralImg = PlaceHolderImages.find(img => img.id === "funeral-transport")?.imageUrl || "https://picsum.photos/seed/funeral-services/800/600"
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -59,7 +61,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex-1 relative h-[500px] w-full rounded-3xl overflow-hidden">
                 <Image
-                  src={PlaceHolderImages.find(img => img.id === "hero-ambulance")?.imageUrl || ""}
+                  src={ambulanceImg}
                   alt="Medical Ambulance"
                   fill
                   className="object-cover"
@@ -93,7 +95,7 @@ export default function ServicesPage() {
               </div>
               <div className="flex-1 relative h-[500px] w-full rounded-3xl overflow-hidden">
                 <Image
-                  src={PlaceHolderImages.find(img => img.id === "funeral-transport")?.imageUrl || ""}
+                  src={funeralImg}
                   alt="Funeral Transport"
                   fill
                   className="object-cover"
