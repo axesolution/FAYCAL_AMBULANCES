@@ -3,25 +3,25 @@
   "placeholderImages": [
     {
       "id": "hero-ambulance",
-      "description": "Modern ambulance vehicle with lights on",
-      "imageUrl": "https://picsum.photos/seed/ambulance1/1920/1080",
-      "imageHint": "ambulance emergency"
+      "description": "Une ambulance moderne en intervention sur une route de nuit à Alger",
+      "imageUrl": "https://picsum.photos/seed/ambulance-road-1/1920/1080",
+      "imageHint": "ambulance road"
     },
     {
       "id": "medical-team",
-      "description": "Professional medical team providing care",
+      "description": "Équipe médicale professionnelle prodiguant des soins",
       "imageUrl": "https://picsum.photos/seed/medteam/800/600",
       "imageHint": "medical team"
     },
     {
       "id": "funeral-transport",
-      "description": "Respectful funeral transport vehicle",
+      "description": "Véhicule de transport funéraire respectueux",
       "imageUrl": "https://picsum.photos/seed/funeral/800/600",
       "imageHint": "funeral transport"
     },
     {
       "id": "algiers-landscape",
-      "description": "Algiers city landscape background",
+      "description": "Vue panoramique d'Alger au crépuscule",
       "imageUrl": "https://picsum.photos/seed/algiers/1920/600",
       "imageHint": "algiers city"
     }
