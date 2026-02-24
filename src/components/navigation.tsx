@@ -84,7 +84,7 @@ export function Navigation() {
                   alt="Ambulance Fayçal"
                   width={64}
                   height={64}
-                  className="object-contain"
+                  className={cn("object-cover scale-150", scrolled ? "brightness-0 contrast-125" : "invert")}
                 />
               </div>
               <div className={cn("flex flex-col", lang === 'ar' ? "gap-[3px]" : "")}>
