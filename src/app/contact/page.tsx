@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Navigation } from "@/components/navigation"
@@ -9,12 +8,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { useTranslation } from "@/components/language-provider"
 
 export default function ContactPage() {
+  const { t } = useTranslation()
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Logic for form submission
-    alert("Inquiry sent. We will contact you shortly.")
+    alert(t.contact.form.success)
   }
 
   return (
@@ -22,12 +23,11 @@ export default function ContactPage() {
       <Navigation />
       
       <main className="flex-grow pt-20">
-        {/* Header Section */}
         <section className="relative py-24 bg-card border-b border-border">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight">Contact Us</h1>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight">{t.contact.title}</h1>
             <p className="text-secondary max-w-2xl mx-auto text-lg">
-              Reach out to us for non-urgent inquiries, quotes, or to learn more about our specialized services.
+              {t.contact.desc}
             </p>
           </div>
         </section>
@@ -36,11 +36,7 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Details */}
             <div>
-              <h2 className="text-3xl font-bold text-white mb-8">Direct Contact</h2>
-              <p className="text-secondary mb-12 text-lg">
-                For immediate medical emergencies or urgent funeral transport requests, please use our 24/7 phone line.
-              </p>
-
+              <h2 className="text-3xl font-bold text-white mb-8">{t.contact.direct}</h2>
               <div className="space-y-8">
                 {[
                   { title: "24/7 Hotline", val: "+213 123 456 789", icon: Phone },
@@ -59,44 +55,36 @@ export default function ContactPage() {
                   </div>
                 ))}
               </div>
-              
-              {/* Map Placeholder */}
-              <div className="mt-12 h-64 bg-muted rounded-3xl overflow-hidden relative grayscale hover:grayscale-0 transition-all border border-border">
-                 <div className="absolute inset-0 flex items-center justify-center text-secondary/50 flex-col gap-4">
-                    <MapPin className="h-10 w-10" />
-                    <span className="font-semibold uppercase tracking-widest text-xs">Algiers Operational Center Map</span>
-                 </div>
-              </div>
             </div>
 
             {/* Inquiry Form */}
             <div className="bg-card p-10 rounded-3xl border border-border shadow-xl">
-              <h3 className="text-2xl font-bold text-white mb-6">Send an Inquiry</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t.contact.form.title}</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input id="name" placeholder="John Doe" className="bg-background border-border" required />
+                    <Label htmlFor="name">{t.contact.form.name}</Label>
+                    <Input id="name" className="bg-background border-border" required />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" placeholder="+213..." className="bg-background border-border" required />
+                    <Label htmlFor="phone">{t.contact.form.phone}</Label>
+                    <Input id="phone" className="bg-background border-border" required />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" className="bg-background border-border" />
+                  <Label htmlFor="email">{t.contact.form.email}</Label>
+                  <Input id="email" type="email" className="bg-background border-border" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="e.g. Funeral Transport Quote" className="bg-background border-border" required />
+                  <Label htmlFor="subject">{t.contact.form.subject}</Label>
+                  <Input id="subject" className="bg-background border-border" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea id="message" placeholder="Please describe your requirements..." className="bg-background border-border min-h-[150px]" required />
+                  <Label htmlFor="message">{t.contact.form.message}</Label>
+                  <Textarea id="message" className="bg-background border-border min-h-[150px]" required />
                 </div>
                 <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-lg py-6 rounded-full font-bold uppercase tracking-widest">
-                  Send Message
+                  {t.contact.form.submit}
                 </Button>
               </form>
             </div>

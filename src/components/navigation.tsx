@@ -1,19 +1,26 @@
-
 "use client"
 
 import Link from "next/link"
-import { Shield, Phone, Menu, X } from "lucide-react"
+import { Shield, Phone, Menu, X, Globe } from "lucide-react"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useTranslation } from "@/components/language-provider"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const { lang, setLang, t } = useTranslation()
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About Us", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: t.nav.home, href: "/" },
+    { name: t.nav.services, href: "/services" },
+    { name: t.nav.about, href: "/about" },
+    { name: t.nav.contact, href: "/contact" },
   ]
 
   return (
@@ -24,8 +31,8 @@ export function Navigation() {
             <Link href="/" className="flex items-center gap-2 group">
               <Shield className="h-8 w-8 text-primary transition-transform group-hover:scale-110" />
               <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight text-white uppercase">Faycal Ambulance</span>
-                <span className="text-[10px] text-secondary uppercase tracking-[0.2em]">Service Professionnel Algiers</span>
+                <span className="text-xl font-bold tracking-tight text-white uppercase">{t.brand}</span>
+                <span className="text-[10px] text-secondary uppercase tracking-[0.2em]">{t.tagline}</span>
               </div>
             </Link>
           </div>
@@ -40,15 +47,43 @@ export function Navigation() {
                 {link.name}
               </Link>
             ))}
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-secondary hover:text-white">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLang('fr')} className={lang === 'fr' ? 'bg-primary/20' : ''}>
+                  Français
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLang('ar')} className={lang === 'ar' ? 'bg-primary/20' : ''}>
+                  العربية
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <Button asChild variant="default" className="bg-primary hover:bg-primary/90 font-semibold rounded-full px-6">
               <a href="tel:+213123456789" className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
-                Emergency 24/7
+                {t.nav.emergency}
               </a>
             </Button>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-4">
+             <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-secondary hover:text-white">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => setLang('fr')}>Français</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLang('ar')}>العربية</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-md text-secondary hover:text-white focus:outline-none"
@@ -76,7 +111,7 @@ export function Navigation() {
               <Button asChild variant="destructive" className="w-full font-bold">
                 <a href="tel:+213123456789" className="flex items-center justify-center gap-2">
                   <Phone className="h-4 w-4" />
-                  Appel d'Urgence
+                  {t.nav.emergency}
                 </a>
               </Button>
             </div>
