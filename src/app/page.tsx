@@ -54,6 +54,7 @@ export default function Home() {
             fill
             className="object-cover object-center brightness-75"
             priority
+            unoptimized
             data-ai-hint="ambulance highway"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
@@ -119,6 +120,7 @@ export default function Home() {
                 fetchPriority="high"
                 sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover object-center"
+                unoptimized
               />
             </div>
             <div>

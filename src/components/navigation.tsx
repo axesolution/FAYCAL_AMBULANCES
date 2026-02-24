@@ -100,13 +100,13 @@ export function Navigation() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-5 lg:space-x-8">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-[clamp(0.8rem,1vw,0.95rem)] font-bold uppercase md:tracking-tight lg:tracking-wide transition-colors px-1.5 md:px-2 py-4 whitespace-nowrap",
+                  "text-[clamp(0.8rem,1vw,0.95rem)] font-bold uppercase md:tracking-tight lg:tracking-wide transition-colors px-2 py-4 whitespace-nowrap",
                   scrolled ? "text-slate-600 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >

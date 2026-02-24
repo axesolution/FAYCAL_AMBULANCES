@@ -44,7 +44,7 @@
 
 /* Arabic typography */
 html[lang="ar"] body {
-  font-family: "Amiri Quran", "Scheherazade New", "Inter", serif;
+  font-family: "Scheherazade New", "Amiri Quran", "Inter", serif;
 }
 html[lang="ar"] h1,
 html[lang="ar"] h2,
@@ -52,7 +52,7 @@ html[lang="ar"] h3,
 html[lang="ar"] h4,
 html[lang="ar"] h5,
 html[lang="ar"] h6 {
-  font-family: "Amiri Quran", "Scheherazade New", serif;
+  font-family: "Scheherazade New", "Amiri Quran", serif;
   letter-spacing: 0;
 }
 
