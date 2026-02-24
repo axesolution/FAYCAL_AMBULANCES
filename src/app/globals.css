@@ -1,10 +1,11 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 225 11% 13%; /* #1C1E23 */
+    --background: 225 11% 13%; /* #1C1E23 Dark background */
     --foreground: 0 0% 100%;
     --card: 225 11% 16%;
     --card-foreground: 0 0% 100%;

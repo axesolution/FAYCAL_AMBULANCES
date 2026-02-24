@@ -1,3 +1,4 @@
+
 "use client"
 
 import Image from "next/image"
@@ -48,7 +49,7 @@ export default function Home() {
       <Navigation />
       
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* Hero Section with Ambulance Background */}
         <section className="relative h-[90vh] flex items-center overflow-hidden">
           <Image
             src={heroImg?.imageUrl || "https://picsum.photos/seed/ambulance-road-1/1920/1080"}
