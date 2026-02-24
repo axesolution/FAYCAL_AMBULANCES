@@ -10,8 +10,8 @@
     {
       "id": "medical-team",
       "description": "Équipe médicale professionnelle prodiguant des soins",
-      "imageUrl": "https://picsum.photos/seed/medteam/800/600",
-      "imageHint": "medical team"
+      "imageUrl": "https://source.unsplash.com/1600x1200/?paramedic,ambulance,back,uniform",
+      "imageHint": "paramedic team from back"
     },
     {
       "id": "funeral-transport",

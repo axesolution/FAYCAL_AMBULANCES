@@ -2,7 +2,7 @@ export type Language = 'fr' | 'ar';
 
 export const translations = {
   fr: {
-    brand: "Faycal Ambulance",
+    brand: "Fayçal Ambulance",
     tagline: "Service Professionnel Alger",
     nav: {
       home: "Accueil",
@@ -12,15 +12,15 @@ export const translations = {
       emergency: "Urgence 24/7"
     },
     hero: {
-      badge: "Réponse d'urgence 24/7 à Alger",
-      title: "Des soins attentionnés quand cela compte le plus",
-      desc: "Ambulance Faycal fournit un transport médical d'urgence professionnel et des services funéraires avec un engagement envers la dignité, la rapidité et la fiabilité.",
+      badge: "Ambulance d'urgence 24/7 à Alger",
+      title: "Transport médical et funéraire quand chaque minute compte",
+      desc: "Ambulance Fayçal assure le transport médical d'urgence, les transferts inter-hospitaliers et le transport funéraire à Alger avec réactivité, sécurité et respect des patients et des familles.",
       callNow: "Appeler : +213 123 456",
       ourServices: "Nos Services"
     },
     services: {
       title: "Nos Services",
-      desc: "Solutions de transport fiables, professionnelles et empathiques pour les besoins médicaux et funéraires à Alger.",
+      desc: "Solutions de transport sanitaire et funéraire fiables à Alger : urgence, transferts inter-hospitaliers et rapatriement local.",
       emergency: {
         title: "Transport d'Urgence",
         desc: "Transport médical à réponse rapide avec des ambulances modernes entièrement équipées."
@@ -30,8 +30,8 @@ export const translations = {
         desc: "Transport digne et respectueux pour vos proches à Alger et au-delà."
       },
       medical: {
-        title: "Assistance Médicale",
-        desc: "Équipes paramédicales qualifiées dédiées aux soins des patients durant chaque voyage."
+        title: "Transport inter-hospitalier",
+        desc: "Organisation complète des transferts entre cliniques et hôpitaux avec équipe paramédicale dédiée pour assurer la continuité des soins du départ jusqu’à l’arrivée."
       },
       learnMore: "En savoir plus",
       medicalSection: {
@@ -55,10 +55,10 @@ export const translations = {
     },
     about: {
       title: "À Propos de Nous",
-      subtitle: "Dédié à fournir le plus haut standard de transport d'urgence et de soins funéraires au cœur d'Alger.",
+      subtitle: "Spécialisé dans le transport médical d'urgence, les transferts inter-hospitaliers et les services funéraires professionnels à Alger.",
       mission: {
         title: "Notre Mission",
-        desc1: "Fondée avec la vision de combler le fossé dans le transport médical de qualité, Faycal Ambulance Services est devenue une pierre angulaire de la communauté d'Alger. Nous croyons que chaque patient mérite des soins dignes, professionnels et rapides lors de ses moments les plus vulnérables.",
+        desc1: "Fondée avec la vision de combler le fossé dans le transport médical de qualité, Fayçal Ambulance Services est devenue une pierre angulaire de la communauté d'Alger. Nous croyons que chaque patient mérite des soins dignes, professionnels et rapides lors de ses moments les plus vulnérables.",
         desc2: "Qu'il s'agisse d'un transfert d'urgence salvateur ou du dernier voyage d'un proche, notre engagement reste inébranlable : servir avec compassion, excellence et intégrité absolue."
       },
       values: {
@@ -73,7 +73,7 @@ export const translations = {
     },
     whyUs: {
       badge: "Fiabilité et Confiance",
-      title: "Pourquoi Choisir Ambulance Faycal ?",
+      title: "Pourquoi Choisir Ambulance Fayçal ?",
       items: [
         { title: "Disponibilité 24/7", desc: "Notre flotte et notre personnel sont en veille permanente." },
         { title: "Flotte de Pointe", desc: "Équipé de technologies modernes de réanimation et de stabilisation." },
@@ -81,8 +81,8 @@ export const translations = {
       ]
     },
     cta: {
-      title: "Besoin d'une Assistance Urgente ?",
-      desc: "N'attendez pas. Notre équipe de répartition est prête à vous aider dès maintenant.",
+      title: "Besoin d'une ambulance à Alger ?",
+      desc: "Un appel suffit. Nous organisons votre transport médical ou funéraire avec une prise en charge rapide et sécurisée.",
       button: "Appeler le Centre d'Urgence"
     },
     footer: {
@@ -90,6 +90,14 @@ export const translations = {
       quickLinks: "Liens Rapides",
       contactInfo: "Infos Contact",
       rights: "Tous droits réservés."
+      ,
+      links: {
+        emergencyAmbulance: "Ambulance d'Urgence",
+        medicalRepatriation: "Rapatriement Médical",
+        funeralTransport: "Transport Funéraire",
+        icuTransfers: "Transferts en Soins Intensifs",
+        requestQuote: "Demander un Devis"
+      }
     },
     contact: {
       title: "Contactez-nous",
@@ -119,8 +127,8 @@ export const translations = {
     },
     hero: {
       badge: "استجابة طارئة على مدار الساعة في الجزائر",
-      title: "رعاية رحيمة عندما تكون في أمس الحاجة إليها",
-      desc: "توفر إسعاف فيصل نقلاً طبيًا طارئًا احترافيًا وخدمات جنائزية مع التزام بالكرامة والسرعة والموثوقية.",
+      title: "رعاية رحيمة حين تكون بأمسّ الحاجة إليها",
+      desc: "توفر إسعاف فيصل نقلًا طبيًا طارئًا احترافيًا وخدمات جنائزية، مع التزام بالكرامة والسرعة والموثوقية.",
       callNow: "اتصل الآن: +213 123 456",
       ourServices: "خدماتنا"
     },
@@ -195,7 +203,14 @@ export const translations = {
       about: "تقديم خدمات نقل طبية وجنائزية احترافية ورحيمة في الجزائر العاصمة والمناطق المجاورة منذ عام 2010.",
       quickLinks: "روابط سريعة",
       contactInfo: "معلومات الاتصال",
-      rights: "جميع الحقوق محفوظة."
+      rights: "جميع الحقوق محفوظة.",
+      links: {
+        emergencyAmbulance: "إسعاف الطوارئ",
+        medicalRepatriation: "الترحيل الطبي",
+        funeralTransport: "نقل جنائزي",
+        icuTransfers: "نقل العناية المركزة",
+        requestQuote: "طلب عرض سعر"
+      }
     },
     contact: {
       title: "اتصل بنا",

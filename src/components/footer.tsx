@@ -2,7 +2,8 @@
 "use client"
 
 import Link from "next/link"
-import { Shield, Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react"
+import Image from "next/image"
+import { Mail, Phone, MapPin, Facebook, Instagram } from "lucide-react"
 import { useTranslation } from "@/components/language-provider"
 
 export function Footer() {
@@ -13,8 +14,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
         <div className="col-span-1 md:col-span-1">
           <div className="flex items-center gap-3 mb-8">
-            <div className="bg-primary p-2 rounded-lg">
-              <Shield className="h-7 w-7 text-white" />
+            <div className="w-12 h-12 bg-transparent rounded-lg flex items-center justify-center">
+              <Image
+                src="/logo.png"
+                alt="Ambulance Fayçal"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
             </div>
             <span className="text-2xl font-black uppercase tracking-tighter">{t.brand}</span>
           </div>
@@ -34,10 +41,10 @@ export function Footer() {
         <div>
           <h4 className="text-white font-black mb-8 uppercase tracking-widest text-sm">{t.nav.services}</h4>
           <ul className="space-y-4 text-slate-400 font-medium">
-            <li><Link href="/services" className="hover:text-primary transition-colors">Emergency Ambulance</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">Medical Repatriation</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">Funeral Transport</Link></li>
-            <li><Link href="/services" className="hover:text-primary transition-colors">ICU Transfers</Link></li>
+            <li><Link href="/#services" className="hover:text-primary transition-colors">{t.footer.links.emergencyAmbulance}</Link></li>
+            <li><Link href="/#services" className="hover:text-primary transition-colors">{t.footer.links.medicalRepatriation}</Link></li>
+            <li><Link href="/#services" className="hover:text-primary transition-colors">{t.footer.links.funeralTransport}</Link></li>
+            <li><Link href="/#services" className="hover:text-primary transition-colors">{t.footer.links.icuTransfers}</Link></li>
           </ul>
         </div>
 
@@ -46,7 +53,7 @@ export function Footer() {
           <ul className="space-y-4 text-slate-400 font-medium">
             <li><Link href="/about" className="hover:text-primary transition-colors">{t.nav.about}</Link></li>
             <li><Link href="/contact" className="hover:text-primary transition-colors">{t.nav.contact}</Link></li>
-            <li><Link href="/contact" className="hover:text-primary transition-colors">Request a Quote</Link></li>
+            <li><Link href="/contact" className="hover:text-primary transition-colors">{t.footer.links.requestQuote}</Link></li>
           </ul>
         </div>
 

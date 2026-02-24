@@ -2,8 +2,9 @@
 "use client"
 
 import Link from "next/link"
-import { Shield, Phone, Menu, X, Globe } from "lucide-react"
-import { useState, useEffect } from "react"
+import { Menu, X, Globe } from "lucide-react"
+import Image from "next/image"
+import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { useTranslation } from "@/components/language-provider"
 import {
@@ -18,6 +19,10 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { lang, setLang, t } = useTranslation()
+  const brandRef = useRef<HTMLSpanElement>(null)
+  const taglineRef = useRef<HTMLSpanElement>(null)
+  const [taglineMaxWidth, setTaglineMaxWidth] = useState<number>()
+  const [taglineFontSize, setTaglineFontSize] = useState<number>()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +32,41 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    const brandEl = brandRef.current
+    const tagEl = taglineRef.current
+    if (!brandEl || !tagEl) return
+    const baseSize = 12 // px approx for 0.75rem
+    const measure = () => {
+      const brandW = Math.ceil(brandEl.getBoundingClientRect().width)
+      setTaglineMaxWidth(brandW)
+      // Reset to base size before measuring scroll width
+      tagEl.style.fontSize = `${baseSize}px`
+      const tagScrollW = tagEl.scrollWidth
+      if (tagScrollW > brandW) {
+        const ratio = brandW / tagScrollW
+        const newSize = Math.max(10, Math.floor(baseSize * ratio * 0.98))
+        setTaglineFontSize(newSize)
+        tagEl.style.fontSize = `${newSize}px`
+      } else {
+        setTaglineFontSize(baseSize)
+        tagEl.style.fontSize = `${baseSize}px`
+      }
+    }
+    const ro = new ResizeObserver(() => measure())
+    ro.observe(brandEl)
+    // also observe tagline content changes
+    ro.observe(tagEl)
+    // initial measure
+    measure()
+    return () => ro.disconnect()
+  }, [lang])
+
   const navLinks = [
     { name: t.nav.home, href: "/" },
-    { name: t.nav.services, href: "/services" },
-    { name: t.nav.about, href: "/about" },
-    { name: t.nav.contact, href: "/contact" },
+    { name: t.nav.services, href: "/#services" },
+    { name: t.nav.about, href: "/#about" },
+    { name: t.nav.contact, href: "/#contact" },
   ]
 
   return (
@@ -39,33 +74,39 @@ export function Navigation() {
       "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
       scrolled ? "bg-white/90 backdrop-blur-md shadow-md py-2" : "bg-transparent py-4"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="bg-primary p-2 rounded-xl shadow-lg transition-transform group-hover:rotate-12">
-                <Shield className="h-8 w-8 text-white" />
+            <Link href="/" className="flex items-center gap-3">
+              <div className="w-12 h-12 md:w-[clamp(3rem,4vw,3.5rem)] md:h-[clamp(3rem,4vw,3.5rem)] overflow-hidden">
+                <Image
+                  src="/logo.png"
+                  alt="Ambulance Fayçal"
+                  width={64}
+                  height={64}
+                  className="object-contain"
+                />
               </div>
-              <div className="flex flex-col">
+              <div className={cn("flex flex-col", lang === 'ar' ? "gap-[3px]" : "")}>
                 <span className={cn(
-                  "text-2xl font-black tracking-tighter uppercase leading-none",
+                  "text-[clamp(1.125rem,2vw,1.5rem)] font-black uppercase leading-none whitespace-nowrap",
                   scrolled ? "text-slate-900" : "text-white md:text-white" 
-                )}>{t.brand}</span>
+                )} ref={brandRef}>{t.brand}</span>
                 <span className={cn(
-                  "text-[10px] uppercase tracking-[0.3em] font-bold",
+                  "hidden sm:block uppercase tracking-[0.3em] font-bold whitespace-nowrap",
                   scrolled ? "text-primary" : "text-white/80"
-                )}>{t.tagline}</span>
+                )} ref={taglineRef} style={{ maxWidth: taglineMaxWidth ? `${taglineMaxWidth}px` : undefined, fontSize: taglineFontSize ? `${taglineFontSize}px` : undefined }}>{t.tagline}</span>
               </div>
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-5 lg:space-x-8">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 className={cn(
-                  "text-sm font-bold uppercase tracking-widest transition-colors",
+                  "text-[clamp(0.8rem,1vw,0.95rem)] font-bold uppercase md:tracking-tight lg:tracking-wide transition-colors px-1.5 md:px-2 py-4 whitespace-nowrap",
                   scrolled ? "text-slate-600 hover:text-primary" : "text-white/90 hover:text-white"
                 )}
               >
@@ -91,13 +132,6 @@ export function Navigation() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Button asChild className="bg-red-600 hover:bg-red-700 text-white font-black rounded-full px-8 py-6 shadow-xl transition-all hover:scale-105 border-none">
-              <a href="tel:+213123456789" className="flex items-center gap-3">
-                <Phone className="h-5 w-5" />
-                {t.nav.emergency}
-              </a>
-            </Button>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
@@ -129,20 +163,12 @@ export function Navigation() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-3 text-lg font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-colors"
+                    className="block px-4 py-3 text-[clamp(1rem,2.2vw,1.125rem)] font-bold text-slate-900 hover:bg-slate-50 rounded-2xl transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-4">
-              <Button asChild className="w-full bg-red-600 hover:bg-red-700 text-white font-black py-8 rounded-2xl text-xl shadow-lg">
-                <a href="tel:+213123456789" className="flex items-center justify-center gap-3">
-                  <Phone className="h-6 w-6" />
-                  {t.nav.emergency}
-                </a>
-              </Button>
-            </div>
           </div>
         </div>
       )}

@@ -5,7 +5,6 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { EmergencyCTA } from "@/components/emergency-cta"
 import { HeartPulse, Truck, Activity, Siren, Shield, UserCheck } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useTranslation } from "@/components/language-provider"
 
@@ -24,10 +23,10 @@ export default function ServicesPage() {
       
       <main className="flex-grow pt-20">
         {/* Header Section */}
-        <section className="relative py-24 bg-primary/10">
+        <section className="relative py-24 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight">{t.services.title}</h1>
-            <p className="text-secondary max-w-2xl mx-auto text-lg">
+            <p className="text-primary-foreground/90 max-w-2xl mx-auto text-lg">
               {t.services.desc}
             </p>
           </div>

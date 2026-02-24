@@ -34,7 +34,34 @@
   body {
     @apply bg-background text-foreground font-body antialiased;
   }
+  html {
+    @apply scroll-smooth;
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-headline;
+  }
+}
+
+/* Arabic typography */
+html[lang="ar"] body {
+  font-family: "Amiri Quran", "Scheherazade New", "Inter", serif;
+}
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3,
+html[lang="ar"] h4,
+html[lang="ar"] h5,
+html[lang="ar"] h6 {
+  font-family: "Amiri Quran", "Scheherazade New", serif;
+  letter-spacing: 0;
+}
+
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
