@@ -179,9 +179,7 @@ export default function Home() {
                     <p className="text-slate-600 text-base leading-relaxed mb-8">
                       {service.desc}
                     </p>
-                    <div className="flex items-center text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      {lang === 'ar' ? "المزيد →" : "En savoir plus →"}
-                    </div>
+
                   </CardContent>
                 </Card>
               ))}
