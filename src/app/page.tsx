@@ -200,14 +200,12 @@ export default function Home() {
               </p>
             </div>
             <div className="relative">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-black/10 to-transparent rounded-l-3xl" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-black/10 to-transparent rounded-r-3xl" />
               <Carousel opts={{ loop: true }} className="w-full">
                 <CarouselContent>
                   {hospitals.map((h, idx) => (
                     <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
                       <Card className="rounded-3xl border border-slate-100 h-full bg-white">
-                        <div className="aspect-[16/10] bg-slate-100 relative rounded-t-3xl overflow-hidden">
+                        <div className="aspect-[4/3] sm:aspect-[16/10] bg-slate-100 relative rounded-t-3xl overflow-hidden">
                           <iframe
                             src={h.embed}
                             className="absolute inset-0 w-full h-full border-0"
