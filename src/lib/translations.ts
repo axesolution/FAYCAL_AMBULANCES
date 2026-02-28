@@ -15,7 +15,7 @@ export const translations = {
       badge: "Ambulance d'urgence 24/7 à Alger",
       title: "Transport médical et funéraire quand chaque minute compte",
       desc: "Ambulance Fayçal assure le transport médical d'urgence, les transferts inter-hospitaliers et le transport funéraire à Alger avec réactivité, sécurité et respect des patients et des familles.",
-      callNow: "Appeler : +213 123 456",
+      callNow: "Appeler",
       ourServices: "Nos Services"
     },
     services: {
@@ -80,6 +80,10 @@ export const translations = {
         { title: "Personnel Professionnel", desc: "Équipe composée de secouristes certifiés et de soignants compatissants." }
       ]
     },
+    coverage: {
+      title: "Couverture des Hôpitaux d’Alger",
+      desc: "Nos prestations sont optimisées pour intervenir rapidement autour des principaux établissements hospitaliers d’Alger."
+    },
     cta: {
       title: "Besoin d'une ambulance à Alger ?",
       desc: "Un appel suffit. Nous organisons votre transport médical ou funéraire avec une prise en charge rapide et sécurisée.",
@@ -129,7 +133,7 @@ export const translations = {
       badge: "استجابة طارئة على مدار الساعة في الجزائر",
       title: "رعاية رحيمة حين تكون بأمسّ الحاجة إليها",
       desc: "توفر إسعاف فيصل نقلًا طبيًا طارئًا احترافيًا وخدمات جنائزية، مع التزام بالكرامة والسرعة والموثوقية.",
-      callNow: "اتصل الآن: +213 123 456",
+      callNow: "اتصل الآن",
       ourServices: "خدماتنا"
     },
     services: {
@@ -193,6 +197,10 @@ export const translations = {
         { title: "أسطول حديث", desc: "مجهز بأحدث تقنيات الإنعاش والاستقرار لسلامة المرضى." },
         { title: "طاقم محترف", desc: "يتكون فريقنا من مسعفين معتمدين ومقدمي رعاية رحماء." }
       ]
+    },
+    coverage: {
+      title: "تغطية مستشفيات الجزائر العاصمة",
+      desc: "خدماتنا مُحسّنة للتدخل السريع حول أهم المؤسسات الاستشفائية في الجزائر العاصمة."
     },
     cta: {
       title: "هل تحتاج إلى مساعدة عاجلة؟",

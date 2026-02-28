@@ -21,9 +21,9 @@ export default function ServicesPage() {
     <div className="min-h-screen flex flex-col">
       <Navigation />
       
-      <main className="flex-grow pt-20">
+      <main className="flex-grow">
         {/* Header Section */}
-        <section className="relative py-24 bg-primary">
+        <section className="relative py-24 bg-gradient-to-br from-primary to-primary/80">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight">{t.services.title}</h1>
             <p className="text-primary-foreground/90 max-w-2xl mx-auto text-lg">
@@ -37,20 +37,20 @@ export default function ServicesPage() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-16 items-center mb-16">
               <div className="flex-1">
-                <h2 className="text-3xl font-bold text-white mb-6">{t.services.medicalSection.title}</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-6">{t.services.medicalSection.title}</h2>
                 <div className="w-20 h-1 bg-primary mb-8"></div>
-                <p className="text-secondary text-lg mb-8">
+                <p className="text-muted-foreground text-lg mb-8">
                   {t.services.medicalSection.desc}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                   {t.services.medicalSection.items.map((s, i) => {
                     const Icon = medicalIcons[i] || Siren
                     return (
-                      <div key={i} className="flex gap-4 p-6 bg-card rounded-2xl border border-border">
+                      <div key={i} className="flex gap-4 p-6 bg-card rounded-2xl border border-border hover:shadow-lg transition-shadow">
                         <Icon className="h-8 w-8 text-primary shrink-0" />
                         <div>
-                          <h4 className="text-white font-bold mb-2">{s.title}</h4>
-                          <p className="text-secondary text-sm">{s.desc}</p>
+                          <h4 className="text-foreground font-bold mb-2">{s.title}</h4>
+                          <p className="text-muted-foreground text-sm">{s.desc}</p>
                         </div>
                       </div>
                     )
@@ -74,20 +74,20 @@ export default function ServicesPage() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
               <div className="flex-1">
-                <h2 className="text-3xl font-bold text-white mb-6">{t.services.funeralSection.title}</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-6">{t.services.funeralSection.title}</h2>
                 <div className="w-20 h-1 bg-destructive mb-8"></div>
-                <p className="text-secondary text-lg mb-8">
+                <p className="text-muted-foreground text-lg mb-8">
                   {t.services.funeralSection.desc}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                   {t.services.funeralSection.items.map((s, i) => {
                     const Icon = funeralIcons[i] || Truck
                     return (
-                      <div key={i} className="flex gap-4 p-6 bg-background rounded-2xl border border-border">
+                      <div key={i} className="flex gap-4 p-6 bg-background rounded-2xl border border-border hover:shadow-lg transition-shadow">
                         <Icon className="h-8 w-8 text-destructive shrink-0" />
                         <div>
-                          <h4 className="text-white font-bold mb-2">{s.title}</h4>
-                          <p className="text-secondary text-sm">{s.desc}</p>
+                          <h4 className="text-foreground font-bold mb-2">{s.title}</h4>
+                          <p className="text-muted-foreground text-sm">{s.desc}</p>
                         </div>
                       </div>
                     )

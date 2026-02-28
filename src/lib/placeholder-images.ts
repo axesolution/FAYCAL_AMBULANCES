@@ -1,4 +1,4 @@
-import data from '@/app/lib/placeholder-images.json' assert { type: 'json' };
+import data from '@/app/lib/placeholder-images.json';
 
 export type ImagePlaceholder = {
   id: string;
@@ -7,4 +7,4 @@ export type ImagePlaceholder = {
   imageHint: string;
 };
 
-export const PlaceHolderImages: ImagePlaceholder[] = data.placeholderImages;
+export const PlaceHolderImages: ImagePlaceholder[] = (data as { placeholderImages: ImagePlaceholder[] }).placeholderImages;

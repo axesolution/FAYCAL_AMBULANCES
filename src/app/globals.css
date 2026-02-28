@@ -10,19 +10,19 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%; /* Medical Blue */
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 100% 35%; /* Professional Medical Blue - Deeper */
+    --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%; /* Emergency Red */
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%; /* Emergency Red - Deeper */
+    --destructive-foreground: 0 0% 100%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 210 100% 35%;
     --radius: 1rem;
   }
 }
@@ -44,7 +44,7 @@
 
 /* Arabic typography */
 html[lang="ar"] body {
-  font-family: "Scheherazade New", "Amiri Quran", "Inter", serif;
+  font-family: "Noto Sans Arabic", "Inter", sans-serif;
 }
 html[lang="ar"] h1,
 html[lang="ar"] h2,
@@ -52,8 +52,24 @@ html[lang="ar"] h3,
 html[lang="ar"] h4,
 html[lang="ar"] h5,
 html[lang="ar"] h6 {
-  font-family: "Scheherazade New", "Amiri Quran", serif;
+  font-family: "Noto Sans Arabic", sans-serif;
   letter-spacing: 0;
+}
+
+.font-arabic {
+  font-family: "Noto Sans Arabic", sans-serif;
+}
+
+html[lang="fr"] body {
+  font-family: "Inter", sans-serif;
+}
+html[lang="fr"] h1,
+html[lang="fr"] h2,
+html[lang="fr"] h3,
+html[lang="fr"] h4,
+html[lang="fr"] h5,
+html[lang="fr"] h6 {
+  font-family: "Inter", sans-serif;
 }
 
 @layer base {
