@@ -100,10 +100,10 @@ export function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { name: t.nav.about, href: "/about" },
-                { name: t.nav.services, href: "/services" },
-                { name: t.nav.contact, href: "/contact" },
-                { name: t.footer.links.requestQuote, href: "/contact" },
+                { name: t.nav.about, href: "/#about" },
+                { name: t.nav.services, href: "/#services" },
+                { name: t.nav.contact, href: "/#contact" },
+                { name: t.footer.links.requestQuote, href: "/#contact" },
               ].map((item, idx) => (
                 <li key={idx}>
                   <Link href={item.href} className="group flex items-center gap-2 text-slate-400 hover:text-primary transition-colors text-sm">

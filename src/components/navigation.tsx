@@ -71,9 +71,9 @@ export function Navigation() {
 
   const navLinks = [
     { name: t.nav.home, href: "/" },
-    { name: t.nav.services, href: "/services" },
-    { name: t.nav.about, href: "/about" },
-    { name: t.nav.contact, href: "/contact" },
+    { name: t.nav.services, href: "/#services" },
+    { name: t.nav.about, href: "/#about" },
+    { name: t.nav.contact, href: "/#contact" },
   ]
 
   // Prevent hydration mismatch by not rendering until mounted
