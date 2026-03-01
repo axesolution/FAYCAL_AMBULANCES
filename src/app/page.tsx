@@ -45,6 +45,12 @@ export default function Home() {
 
   const hospitals = [
     {
+      nameFr: "CHU Lamine Debaghine (Maillot)",
+      nameAr: "مستشفى لمين دباغين (مايو سابقاً)",
+      area: "Bab El Oued",
+      embed: "https://www.google.com/maps?q=CHU+Lamine+Debaghine+Bab+El+Oued&output=embed"
+    },
+    {
       nameFr: "Hôpital de Aïn Taya",
       nameAr: "مستشفى عين طاية",
       area: "Aïn Taya",
@@ -73,12 +79,6 @@ export default function Home() {
       nameAr: "مستشفى مصطفى باشا الجامعي",
       area: "Sidi M’Hamed",
       embed: "https://www.google.com/maps?q=CHU+Mustapha+Pacha+Alger&output=embed"
-    },
-    {
-      nameFr: "CHU Lamine Debaghine (Maillot)",
-      nameAr: "مستشفى لمين دباغين (مايو سابقاً)",
-      area: "Bab El Oued",
-      embed: "https://www.google.com/maps?q=CHU+Lamine+Debaghine+Bab+El+Oued&output=embed"
     },
     {
       nameFr: "CHU Issad Hassani",
