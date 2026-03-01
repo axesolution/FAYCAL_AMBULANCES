@@ -1,6 +1,9 @@
 import type {Metadata, Viewport} from 'next';
 import './globals.css';
 import { LanguageProvider } from '@/components/language-provider';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 export const metadata: Metadata = {
   title: "Ambulance Fayçal | Transport médical et funéraire à Alger 24/7",
@@ -91,6 +94,8 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
         </LanguageProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
