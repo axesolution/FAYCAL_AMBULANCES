@@ -1,10 +1,19 @@
 
 "use client"
 
+import type { SVGProps } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Mail, Phone, MapPin, Facebook, Instagram, Clock, ArrowUpRight } from "lucide-react"
+import { Mail, Phone, MapPin, Instagram, Clock, ArrowUpRight } from "lucide-react"
 import { useTranslation } from "@/components/language-provider"
+
+function TikTokIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M216 88a8 8 0 0 1-8 8 64.1 64.1 0 0 1-40-14.2V168a72 72 0 1 1-72-72 8 8 0 0 1 0 16 56 56 0 1 0 56 56V40a8 8 0 0 1 16 0 48.05 48.05 0 0 0 48 48 8 8 0 0 1 8 8Z" />
+    </svg>
+  )
+}
 
 export function Footer() {
   const { t, lang } = useTranslation()
@@ -39,12 +48,24 @@ export function Footer() {
               {t.footer.about}
             </p>
             <div className="flex gap-3">
-              <Link href="#" className="w-10 h-10 bg-white/5 hover:bg-primary rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all">
-                <Facebook className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="w-10 h-10 bg-white/5 hover:bg-primary rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all">
+              <a
+                href="https://www.tiktok.com/@ambulance.fayal?_r=1&_t=ZS-94E5sy5qAdz"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+                className="w-10 h-10 bg-white/5 hover:bg-primary rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+              >
+                <TikTokIcon className="h-5 w-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/ambulancefaycal?igsh=MXBlMzV5c2Vqd2ZuNg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-10 h-10 bg-white/5 hover:bg-primary rounded-xl flex items-center justify-center text-slate-400 hover:text-white transition-all"
+              >
                 <Instagram className="h-5 w-5" />
-              </Link>
+              </a>
             </div>
           </div>
 
