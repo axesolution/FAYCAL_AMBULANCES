@@ -5,6 +5,7 @@ import { Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { useTranslation } from "@/components/language-provider"
+import { CONTACT } from "@/lib/constants"
 
 export function EmergencyCTA() {
   const { lang } = useTranslation()
@@ -37,18 +38,14 @@ export function EmergencyCTA() {
               </DialogTitle>
             </DialogHeader>
             <div className="grid gap-4 pt-4">
-              <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl h-14 text-lg">
-                <a href="tel:+213780268005" dir="ltr" className="flex items-center justify-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  +213 780 268 005
-                </a>
-              </Button>
-              <Button asChild size="lg" className="w-full bg-slate-800 hover:bg-slate-700 text-white rounded-xl h-14 text-lg">
-                <a href="tel:+213665173733" dir="ltr" className="flex items-center justify-center gap-2">
-                  <Phone className="h-5 w-5" />
-                  +213 665 173 733
-                </a>
-              </Button>
+              {CONTACT.phones.map((p, i) => (
+                <Button key={p.number} asChild size="lg" className={`w-full ${i === 0 ? "bg-primary hover:bg-primary/90" : "bg-slate-800 hover:bg-slate-700"} text-white rounded-xl h-14 text-lg`}>
+                  <a href={`tel:${p.number}`} dir="ltr" className="flex items-center justify-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    {p.display}
+                  </a>
+                </Button>
+              ))}
             </div>
           </DialogContent>
         </Dialog>

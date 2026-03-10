@@ -58,7 +58,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
         <meta name="application-name" content="Ambulance Fayçal" />
         <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
@@ -73,7 +72,7 @@ export default function RootLayout({
               "@type": "EmergencyService",
           name: "Ambulance Fayçal",
               url: (process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:9002") + "/",
-              telephone: "+213123456789",
+              telephone: "+213780268005",
               areaServed: "Alger",
               address: {
                 "@type": "PostalAddress",
@@ -81,7 +80,7 @@ export default function RootLayout({
                 addressCountry: "DZ",
               },
               openingHours: "Mo-Su 00:00-23:59",
-              image: "https://picsum.photos/seed/ambulance-highway/1200/630",
+              image: "/og",
               sameAs: [],
               serviceType: [
                 "Transport médical d'urgence",

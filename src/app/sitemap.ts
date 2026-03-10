@@ -8,6 +8,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${siteUrl}/`, lastModified },
     { url: `${siteUrl}/services`, lastModified },
     { url: `${siteUrl}/about`, lastModified },
-    { url: `${siteUrl}/contact`, lastModified },
   ];
 }

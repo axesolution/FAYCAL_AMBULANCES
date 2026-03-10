@@ -12,6 +12,9 @@ import { useTranslation } from "@/components/language-provider"
 import heroLocal from "../../Hero_Section.jpg"
 import whyUs from "../../Why_Us.jpg"
 import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { CONTACT } from "@/lib/constants"
+import { hospitals } from "@/lib/hospitals"
+import { LazyMap } from "@/components/lazy-map"
 
 export default function Home() {
   const { t, lang } = useTranslation()
@@ -43,63 +46,6 @@ export default function Home() {
     }
   ]
 
-  const hospitals = [
-    {
-      nameFr: "CHU Lamine Debaghine (Maillot)",
-      nameAr: "مستشفى لمين دباغين (مايو سابقاً)",
-      area: "Bab El Oued",
-      embed: "https://www.google.com/maps?q=CHU+Lamine+Debaghine+Bab+El+Oued&output=embed"
-    },
-    {
-      nameFr: "Hôpital de Aïn Taya",
-      nameAr: "مستشفى عين طاية",
-      area: "Aïn Taya",
-      embed: "https://www.google.com/maps?q=H%C3%B4pital+Ain+Taya+Alger&output=embed"
-    },
-    {
-      nameFr: "Hôpital de Rouiba",
-      nameAr: "مستشفى رويبة",
-      area: "Rouiba",
-      embed: "https://www.google.com/maps?q=H%C3%B4pital+Rouiba+Alger&output=embed"
-    },
-    {
-      nameFr: "CHU Nefissa Hamoud (Parnet)",
-      nameAr: "مستشفى نفيسة حمود (بارني سابقاً)",
-      area: "Hussein Dey",
-      embed: "https://www.google.com/maps?q=CHU+Nefissa+Hamoud+Parnet+Alger&output=embed"
-    },
-    {
-      nameFr: "Hôpital Militaire Aïn Naadja",
-      nameAr: "المستشفى العسكري عين النعجة",
-      area: "Djasr Kasentina",
-      embed: "https://www.google.com/maps?q=H%C3%B4pital+Militaire+Ain+Naadja+Alger&output=embed"
-    },
-    {
-      nameFr: "CHU Mustapha Pacha",
-      nameAr: "مستشفى مصطفى باشا الجامعي",
-      area: "Sidi M’Hamed",
-      embed: "https://www.google.com/maps?q=CHU+Mustapha+Pacha+Alger&output=embed"
-    },
-    {
-      nameFr: "CHU Issad Hassani",
-      nameAr: "مستشفى اسعد حساني",
-      area: "Beni Messous",
-      embed: "https://www.google.com/maps?q=CHU+Issad+Hassani+Beni+Messous&output=embed"
-    },
-    {
-      nameFr: "Clinique Clairval",
-      nameAr: "عيادة كليرفال",
-      area: "Dely Brahim",
-      embed: "https://www.google.com/maps?q=Clinique+Clairval+Dely+Brahim&output=embed"
-    },
-    {
-      nameFr: "Hôpital de Zéralda",
-      nameAr: "مستشفى زرالدة",
-      area: "Zéralda",
-      embed: "https://www.google.com/maps?q=H%C3%B4pital+Zeralda+Alger&output=embed"
-    }
-  ]
-
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
@@ -113,8 +59,7 @@ export default function Home() {
             fill
             className="object-cover object-center brightness-75"
             priority
-            unoptimized
-            data-ai-hint="ambulance highway"
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-0 pointer-events-none" />
           <div className="container mx-auto px-4 relative z-10">
@@ -143,12 +88,11 @@ export default function Home() {
                       </DialogTitle>
                     </DialogHeader>
                     <div className="grid gap-3">
-                      <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl">
-                        <a href="tel:+213780268005" dir="ltr">+213 780 268 005</a>
-                      </Button>
-                      <Button asChild size="lg" className="w-full bg-slate-800 hover:bg-slate-700 text-white rounded-xl">
-                        <a href="tel:+213665173733" dir="ltr">+213 665 173 733</a>
-                      </Button>
+                      {CONTACT.phones.map((p) => (
+                        <Button key={p.number} asChild size="lg" className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl">
+                          <a href={`tel:${p.number}`} dir="ltr">{p.display}</a>
+                        </Button>
+                      ))}
                     </div>
                   </DialogContent>
                 </Dialog>
@@ -204,12 +148,10 @@ export default function Home() {
                     <CarouselItem key={idx} className="md:basis-1/2 lg:basis-1/3">
                       <Card className="rounded-3xl border border-slate-100 h-full bg-white">
                         <div className="aspect-[4/3] sm:aspect-[16/10] bg-slate-100 relative rounded-t-3xl overflow-hidden">
-                          <iframe
+                          <LazyMap
                             src={h.embed}
-                            className="absolute inset-0 w-full h-full border-0"
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
                             title={`Carte ${h.nameFr}`}
+                            className="absolute inset-0 w-full h-full"
                           />
                         </div>
                         <CardContent className="p-6">
@@ -251,7 +193,6 @@ export default function Home() {
                 fetchPriority="high"
                 sizes="(min-width:1024px) 50vw, 100vw"
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                unoptimized
               />
             </div>
             <div className="relative">
@@ -300,18 +241,14 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <div className="flex flex-col sm:flex-row gap-3">
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 px-6 py-6 rounded-full text-base font-bold shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-                  <a href="tel:+213780268005" className="flex items-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    +213 780 268 005
-                  </a>
-                </Button>
-                <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 px-6 py-6 rounded-full text-base font-bold shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-                  <a href="tel:+213665173733" className="flex items-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    +213 665 173 733
-                  </a>
-                </Button>
+                {CONTACT.phones.map((p) => (
+                  <Button key={p.number} asChild size="lg" className="bg-white text-primary hover:bg-white/90 px-6 py-6 rounded-full text-base font-bold shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+                    <a href={`tel:${p.number}`} className="flex items-center gap-2">
+                      <Phone className="h-5 w-5" />
+                      {p.display}
+                    </a>
+                  </Button>
+                ))}
               </div>
             </div>
           </div>

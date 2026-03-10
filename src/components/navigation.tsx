@@ -15,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
+import { CONTACT } from "@/lib/constants"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -175,7 +176,7 @@ export function Navigation() {
                 "rounded-full px-5 font-semibold hidden lg:flex items-center gap-2 ml-2",
                 scrolled ? "bg-primary hover:bg-primary/90 text-white" : "bg-white text-primary hover:bg-white/90"
               )}>
-                <a href="tel:+213780268005">
+                <a href={`tel:${CONTACT.phones[0].number}`}>
                   <Phone className="h-4 w-4" />
                   {lang === 'ar' ? "اتصل" : "Appeler"}
                 </a>
@@ -225,18 +226,17 @@ export function Navigation() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-slate-100 mt-4 space-y-3">
-                <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl h-12 font-semibold">
-                  <a href="tel:+213780268005" className="flex items-center justify-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    +213 780 268 005
-                  </a>
-                </Button>
-                <Button asChild variant="outline" className="w-full border-slate-200 text-slate-700 hover:bg-slate-50 rounded-xl h-12 font-semibold">
-                  <a href="tel:+213665173733" className="flex items-center justify-center gap-2">
-                    <Phone className="h-5 w-5" />
-                    +213 665 173 733
-                  </a>
-                </Button>
+                {CONTACT.phones.map((p, i) => (
+                  <Button key={p.number} asChild variant={i === 0 ? "default" : "outline"} className={cn(
+                    "w-full rounded-xl h-12 font-semibold",
+                    i === 0 ? "bg-primary hover:bg-primary/90 text-white" : "border-slate-200 text-slate-700 hover:bg-slate-50"
+                  )}>
+                    <a href={`tel:${p.number}`} className="flex items-center justify-center gap-2">
+                      <Phone className="h-5 w-5" />
+                      {p.display}
+                    </a>
+                  </Button>
+                ))}
               </div>
             </div>
           </div>

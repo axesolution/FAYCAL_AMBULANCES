@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Mail, Phone, MapPin, Instagram, Clock, ArrowUpRight } from "lucide-react"
 import { useTranslation } from "@/components/language-provider"
+import { CONTACT, SOCIAL } from "@/lib/constants"
 
 function TikTokIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -49,7 +50,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.tiktok.com/@ambulance.fayal?_r=1&_t=ZS-94E5sy5qAdz"
+                href={SOCIAL.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
@@ -58,7 +59,7 @@ export function Footer() {
                 <TikTokIcon className="h-5 w-5" />
               </a>
               <a
-                href="https://www.instagram.com/ambulancefaycal?igsh=MXBlMzV5c2Vqd2ZuNg=="
+                href={SOCIAL.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -127,8 +128,9 @@ export function Footer() {
                   <Phone className="h-4 w-4 text-primary" />
                 </div>
                 <div>
-                  <p className="text-slate-300 text-sm font-medium" dir="ltr">+213 780 268 005</p>
-                  <p className="text-slate-300 text-sm font-medium" dir="ltr">+213 665 173 733</p>
+                  {CONTACT.phones.map((p) => (
+                    <p key={p.number} className="text-slate-300 text-sm font-medium" dir="ltr">{p.display}</p>
+                  ))}
                   <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-400 mt-1">
                     <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
                     24/7
@@ -139,13 +141,13 @@ export function Footer() {
                 <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
                   <Mail className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-slate-300 text-sm">contact@faycal-ambulance.dz</span>
+                <span className="text-slate-300 text-sm">{CONTACT.email}</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="h-4 w-4 text-primary" />
                 </div>
-                <span className="text-slate-300 text-sm">{lang === 'ar' ? "الجزائر العاصمة" : "Alger, Algérie"}</span>
+                <span className="text-slate-300 text-sm">{lang === 'ar' ? CONTACT.address.ar : CONTACT.address.fr}</span>
               </li>
             </ul>
           </div>

@@ -100,7 +100,7 @@ export default function ServicesPage() {
                   alt="Funeral Transport"
                   fill
                   className="object-cover"
-                  data-ai-hint="funeral transport"
+
                 />
               </div>
             </div>
